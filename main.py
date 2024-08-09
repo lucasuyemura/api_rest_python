@@ -40,10 +40,12 @@ def obter_cidade():
 # Inserir novas cidades
 @app.route('/city', methods=['POST'])
 def inserir_cidades():
-    novo_dado = request.json()
-    cursor.execute(f'INSERT INTO world.city VALUES {novo_dado}')
+    
+    novo_dado = request.get_json()
+    cursor.execute(f"INSERT INTO world.city(Name, CountryCode, District, Population) VALUES ({novo_dado['Name']}, {novo_dado['CountryCode']}, {novo_dado['District']}, {novo_dado['Population']}")
+    cursor.fetchall()
 
-
+    return novo_dado
 
 # Excluir cidades
 # Atualizar cidades

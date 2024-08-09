@@ -13,9 +13,14 @@ for linha in data:
         'Population': linha[4]
     }
 
-    jsonify(lista.append(dados_formatados))
+    lista.append(dados_formatados)
 
-    
 
-print(lista)
+novo_dado = {
+    'id':'Brazil',
+     'Country': 'São Paulo',
+     'zipcode': '04578000'
+     }
 
+
+print(novo_dado['id'])
