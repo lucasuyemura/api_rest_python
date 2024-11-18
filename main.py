@@ -24,10 +24,10 @@ def obter_cidade():
     for linha in dados_retornados_na_consulta:
         json = {
         'id': linha[0],
-        'Name': linha[1],
-        'CountryCode': linha[2],
-        'District': linha[3],
-        'Population': linha[4]
+        'name': linha[1],
+        'country_code': linha[2],
+        'district': linha[3],
+        'population': linha[4]
         }
     
         dados_formatados_em_json.append(json)
@@ -42,7 +42,7 @@ def obter_cidade():
 def inserir_cidades():
     
     novo_dado = request.get_json()
-    cursor.execute(f"INSERT INTO world.city(Name, CountryCode, District, Population) VALUES ({novo_dado['Name']}, {novo_dado['CountryCode']}, {novo_dado['District']}, {novo_dado['Population']}")
+    cursor.execute(f"INSERT INTO world.city(name, country_code, district, population) VALUES ('{novo_dado['name']}', '{novo_dado['country_code']}', '{novo_dado['district']}', {novo_dado['population']})")
     cursor.fetchall()
 
     return novo_dado

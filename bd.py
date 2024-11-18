@@ -12,8 +12,4 @@ def connect(schema = "world", table = "city", consulta_sql = "SELECT * FROM"):
             database = schema
         )
 
-
-def cursor():
-        
-         return connect().cursor()
          
